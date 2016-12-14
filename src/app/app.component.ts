@@ -13,7 +13,8 @@ import 'rxjs/add/operator/count';
 export class AppComponent {
   title = 'app works!';
   totalPlanes: number;
-  air = [];
+  air;
+  air1;
   ground;
   constructor(public http: Http) { }
 
@@ -21,13 +22,20 @@ export class AppComponent {
     this.http.request('https://opensky-network.org/api/states/all')
       .subscribe((res: Response) => {
         this.totalPlanes = res.json().states.length;
-
+        
+        var air1 = 0;
         res.json().states.forEach(function (item) {
-
-          console.log(item[2]);
-        }
-
+        
+          if (item[8] === false) {
+            air1 = air1+1;
+              }
+          return air1;
+       }
+          
         )
+        console.log(air1);
+        this.air = air1;
+          console.log(this.air);
       })
   }
 }
