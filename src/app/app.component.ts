@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Http, Response } from '@angular/http';
-
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/count';
 
 
 
@@ -12,7 +13,7 @@ import { Http, Response } from '@angular/http';
 export class AppComponent {
   title = 'app works!';
   totalPlanes: number;
-  air;
+  air = [];
   ground;
   constructor(public http: Http) { }
 
@@ -21,7 +22,12 @@ export class AppComponent {
       .subscribe((res: Response) => {
         this.totalPlanes = res.json().states.length;
 
+        res.json().states.forEach(function (item) {
+
+          console.log(item[2]);
+        }
+
+        )
       })
   }
-
 }
