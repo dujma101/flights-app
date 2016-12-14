@@ -12,7 +12,8 @@ import { Http, Response } from '@angular/http';
 export class AppComponent {
   title = 'app works!';
   totalPlanes: number;
-
+  air;
+  ground;
   constructor(public http: Http) { }
 
   request(): void {
