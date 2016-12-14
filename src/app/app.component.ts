@@ -12,15 +12,19 @@ import 'rxjs/add/operator/count';
 })
 export class AppComponent {
   title = 'app works!';
+  data: {};
+  
+  
   totalPlanes: number;
   airBorne;
-
   grounded;
   constructor(public http: Http) { }
 
   request(): void {
     this.http.request('https://opensky-network.org/api/states/all')
       .subscribe((res: Response) => {
+        this.data = res.json();
+       
         this.totalPlanes = res.json().states.length;
 
         var air1 = 0;
@@ -35,6 +39,25 @@ export class AppComponent {
         )
         this.airBorne = air1;
         this.grounded = this.totalPlanes - this.airBorne;
-      })
+        console.log(this.data);
+        // state origin
+        var states1 = res.json().states[3];
+        
+        
+        var usa = 0;
+        res.json().states.forEach(function (item) {
+
+          if (item[2] === "United States") {
+            usa = usa + 1;
+          }
+        }
+       
+
+          // ================         
+
+        )
+          console.log("usa " + usa);
+      }
+      )
   }
 }
