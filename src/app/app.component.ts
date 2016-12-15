@@ -11,13 +11,12 @@ import 'rxjs/add/operator/count';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
   data: {};
-  
-  
   totalPlanes: number;
   airBorne;
   grounded;
+  count;
+  states2;
   constructor(public http: Http) { }
 
   request(): void {
@@ -41,22 +40,31 @@ export class AppComponent {
         this.grounded = this.totalPlanes - this.airBorne;
         console.log(this.data);
         // state origin
-        var states1 = res.json().states[3];
         
         
-        var usa = 0;
-        res.json().states.forEach(function (item) {
+        var c = [];
+res.json().states.forEach(function (params) {
+   
+  c.push(params[2]);
 
-          if (item[2] === "United States") {
-            usa = usa + 1;
-          }
-        }
-       
+    }
+  
+)
+   console.log(c);
+
+this.count = function(ary, classifier) {
+    return ary.reduce(function(counter, item) {
+        var p = (classifier || String)(item);
+        counter[p] = counter.hasOwnProperty(p) ? counter[p] + 1 : 1;
+        return counter;
+    }, {})
+   }
+this.states2 = this.count(c);
+   console.log(this.states2);
 
           // ================         
 
-        )
-          console.log("usa " + usa);
+        
       }
       )
   }
