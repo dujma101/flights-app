@@ -1,13 +1,11 @@
-import { Directive } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
 
-@Directive({
-  selector: '[appData]'
-})
-export class DataDirective {
+@Injectable()
+export class DataService {
 
-  data: {};
+   data: {};
   totalPlanes: number;
   airBorne;
   grounded;
