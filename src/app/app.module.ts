@@ -8,6 +8,7 @@ import { HomeComponent } from './home.component';
 import { HeaderComponent } from './header.component';
 import { CountriesComponent } from './airplanes/countries.component';
 import { PlanesComponent } from './airplanes/planes.component';
+import { DataDirective } from './data.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PlanesComponent } from './airplanes/planes.component';
     HomeComponent,
     HeaderComponent,
     CountriesComponent,
-    PlanesComponent
+    PlanesComponent,
+    DataDirective
   ],
   imports: [
     BrowserModule,
