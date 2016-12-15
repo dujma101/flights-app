@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from './header.component';
+import { CountriesComponent } from './countries.component';
 
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/count';
