@@ -10,7 +10,6 @@ export class PlanesComponent implements OnInit {
  
   
   constructor(private data: DataService) {} 
-      @Input() totalPlanes;
 
   ngOnInit() {
       this.data.request();   

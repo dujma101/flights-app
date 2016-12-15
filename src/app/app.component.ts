@@ -21,11 +21,10 @@ import 'rxjs/add/operator/count';
 
 export class AppComponent implements OnInit {
   constructor(private data: DataService) {} 
-      @Input() totalPlanes;
 
   // totalPlanes = this.data.totalPlanes;
     ngOnInit() {
-      this.data.request();
+      // this.data.request();
       
    }
 
