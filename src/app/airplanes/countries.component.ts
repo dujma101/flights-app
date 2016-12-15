@@ -7,9 +7,10 @@ import { DataService } from '../data.service';
 })
 export class CountriesComponent implements OnInit {
 
-  constructor(data1:DataService) { }
+  constructor(private data1:DataService) { }
 
   ngOnInit() {
+    this.data1.request();
   }
 
 }

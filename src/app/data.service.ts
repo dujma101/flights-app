@@ -11,6 +11,7 @@ export class DataService {
   grounded;
   count;
   states2;
+  statesArray;
   constructor(public http: Http) { }
 
   request(): void {
@@ -36,15 +37,15 @@ export class DataService {
         // state origin
         
         
-        var c = [];
+        var countedByState = [];
 res.json().states.forEach(function (params) {
    
-  c.push(params[2]);
+  countedByState.push(params[2]);
 
     }
   
 )
-   console.log(c);
+   console.log(countedByState);
 
 this.count = function(ary, classifier) {
     return ary.reduce(function(counter, item) {
@@ -53,9 +54,9 @@ this.count = function(ary, classifier) {
         return counter;
     }, {})
    }
-this.states2 = this.count(c);
+this.states2 = this.count(countedByState);
    console.log(this.states2);
-
+        this.statesArray = countedByState;
           // ================         
 
         
