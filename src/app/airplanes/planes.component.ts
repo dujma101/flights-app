@@ -4,15 +4,14 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-planes',
   templateUrl: './planes.component.html',
-  providers:[DataService]
 })
 export class PlanesComponent implements OnInit {
  
   
-  constructor(private data: DataService) {} 
+  constructor(private data1: DataService) {} 
 
   ngOnInit() {
-      this.data.request();   
+      this.data1.request();   
              
    }
       

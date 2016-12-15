@@ -8,6 +8,7 @@ import { HomeComponent } from './home.component';
 import { HeaderComponent } from './header.component';
 import { CountriesComponent } from './airplanes/countries.component';
 import { PlanesComponent } from './airplanes/planes.component';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { PlanesComponent } from './airplanes/planes.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers:[DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
