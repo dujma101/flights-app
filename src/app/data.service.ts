@@ -32,7 +32,7 @@ export class DataService {
         )
         this.airBorne = air1;
         this.grounded = this.totalPlanes - this.airBorne;
-        console.log(this.data);
+        console.log(this.totalPlanes);
         // state origin
         
         

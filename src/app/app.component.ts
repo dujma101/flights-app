@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit ,Input,Inject} from '@angular/core';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from './header.component';
 import { CountriesComponent } from './airplanes/countries.component';
@@ -19,14 +19,14 @@ import 'rxjs/add/operator/count';
   
 })
 
-  // implements oninit? 
-export class AppComponent {
-
+export class AppComponent implements OnInit {
   constructor(private data: DataService) {} 
+      @Input() totalPlanes;
 
-    request() {
-      
+  // totalPlanes = this.data.totalPlanes;
+    ngOnInit() {
       this.data.request();
+      
    }
 
 
