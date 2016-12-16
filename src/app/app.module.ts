@@ -9,6 +9,7 @@ import { HeaderComponent } from './header.component';
 import { CountriesComponent } from './airplanes/countries.component';
 import { PlanesComponent } from './airplanes/planes.component';
 import { DataService } from './data.service';
+import { KeysPipe } from './airplanes/countries.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DataService } from './data.service';
     HeaderComponent,
     CountriesComponent,
     PlanesComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

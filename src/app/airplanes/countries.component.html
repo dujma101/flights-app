@@ -6,10 +6,12 @@
   <!-- Default panel contents -->
   <div class="panel-heading">Panel heading</div>
 
-  <!-- Table -->
-  <table class="table">
-   {{this.data1.states2}}
-  </table>
+<ul>
+  <li *ngFor='let key of this.data1.states2 | keys'>
+   {{key.key}}, {{key.value}}
+  </li>
+</ul>
+ 
 </div>
 
 </div>

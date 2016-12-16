@@ -58,8 +58,8 @@ this.states2 = this.count(countedByState);
    console.log(this.states2);
         this.statesArray = countedByState;
           // ================         
-
-        
+var t = Array.from(this.states2)
+console.log(t);     
       }
       )
   }
