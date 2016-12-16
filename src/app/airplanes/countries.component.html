@@ -1,17 +1,21 @@
-
 <div class="row col-md-8">
-
-
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Panel heading</div>
-
-<ul>
-  <li *ngFor='let key of this.data1.states2 | keys'>
-   {{key.key}}, {{key.value}}
-  </li>
-</ul>
- 
-</div>
-
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Panel heading</div>
+    <table style="width:100%">
+      <tr>
+        <th>Country</th>
+        <th>Flights</th>
+        <th>Other</th>
+      </tr>
+      <tr *ngFor='let key of this.data1.states2 | keys'>
+        <td>
+          {{key.key}}</td>
+        <td>
+          {{key.value}}</td>
+        <td>
+          {{key.value/this.data1.totalPlanes | percent:'1.0-2'}}</td>
+      </tr>
+    </table>
+  </div>
 </div>

@@ -12,7 +12,6 @@ export class CountriesComponent implements OnInit {
   constructor(private data1:DataService) { }
 
   ngOnInit() {
-    this.data1.request();
   }
 
 }
