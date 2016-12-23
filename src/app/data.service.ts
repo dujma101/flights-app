@@ -1,11 +1,6 @@
-import {
-  Injectable
-} from '@angular/core';
-import {
-  Http,
-  Response
-} from '@angular/http';
-
+import {Injectable} from '@angular/core';
+import { Http,Response} from '@angular/http';
+import 'rxjs/Rx';
 
 @Injectable()
 export class DataService {
@@ -23,9 +18,10 @@ export class DataService {
   constructor(public http: Http) {}
 
   request(): void {
-    this.http.request('https://opensky-network.org/api/states/all')
+    this.http.get('https://opensky-network.org/api/states/all')
+      .map((res:Response) => res.json())
       .subscribe((res: Response) => {
-        this.data = res.json();
+        this.data = res;
 
         this.totalPlanes = this.data.states.length;
 
