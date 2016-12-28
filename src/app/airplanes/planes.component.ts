@@ -11,11 +11,5 @@ export class PlanesComponent implements OnInit {
   constructor(private data1: DataService) { }
 
   ngOnInit() {
-  
-      
-    
-   
-
-
-  }
+   }
 }

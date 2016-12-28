@@ -4,7 +4,6 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class DataService {
-
   data;
   totalPlanes: number;
   airBorne;
@@ -15,8 +14,7 @@ export class DataService {
   descending;
   sortedArr;
 
-
-  constructor(public http: Http) {}
+  constructor(public http: Http) { }
 
   request(): void {
     this.http.get('https://opensky-network.org/api/states/all')
@@ -37,7 +35,6 @@ export class DataService {
         )
         this.airBorne = air1;
         this.grounded = this.totalPlanes - this.airBorne;
-        // console.log(this.totalPlanes);
 
 
          var asc = 0,
@@ -56,8 +53,6 @@ export class DataService {
         
         this.ascending = asc;
         this.descending = desc;
-
-        // console.log(ascending);
 
         // state origin
         var countedByState = [];
@@ -83,13 +78,9 @@ this.sortedArr = [];
           for (let key in this.states2) {
             this.sortedArr.push({ state: key, nFlights: this.states2[key] });
           }
-this.sortedArr.sort(function(a,b) {return (b.nFlights > a.nFlights) ? 1 : ((a.nFlights > b.nFlights) ? -1 : 0);} ); 
-console.log(this.sortedArr);
+        this.sortedArr.sort(function (a, b)
+        { return (b.nFlights > a.nFlights) ? 1 : ((a.nFlights > b.nFlights) ? -1 : 0); }); 
 
-
-
-        // console.log(this.states2);
-        // ================         
 
       })
   }
