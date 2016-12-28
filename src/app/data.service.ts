@@ -13,6 +13,7 @@ export class DataService {
   states2;
   ascending;
   descending;
+  sortedArr;
 
 
   constructor(public http: Http) {}
@@ -77,6 +78,16 @@ export class DataService {
           }, {})
         }
         this.states2 = this.count(countedByState);
+
+this.sortedArr = [];
+          for (let key in this.states2) {
+            this.sortedArr.push({ state: key, nFlights: this.states2[key] });
+          }
+this.sortedArr.sort(function(a,b) {return (b.nFlights > a.nFlights) ? 1 : ((a.nFlights > b.nFlights) ? -1 : 0);} ); 
+console.log(this.sortedArr);
+
+
+
         // console.log(this.states2);
         // ================         
 

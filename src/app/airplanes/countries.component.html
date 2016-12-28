@@ -8,13 +8,13 @@
         <th>Flights</th>
         <th>Other</th>
       </tr>
-      <tr *ngFor='let key of this.data1.states2 | keys'>
+      <tr *ngFor='let key of this.data1.sortedArr'>
         <td>
-          {{key.key}}</td>
+          {{key.state}}</td>
         <td>
-          {{key.value}}</td>
+          {{key.nFlights}}</td>
         <td>
-          {{key.value/this.data1.totalPlanes | percent:'1.0-2'}}</td>
+          {{key.nFlights/this.data1.totalPlanes | percent:'1.0-2'}}</td>
       </tr>
     </table>
   </div>
