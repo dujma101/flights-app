@@ -24,45 +24,35 @@ export class DataService {
 
         this.totalPlanes = this.data.states.length;
 
-        var air1 = 0;
+
+         var asc = 0,
+          desc = 0;
+var countedByState = [];
+var air1 = 0;
         this.data.states.forEach(function (item) {
 
             if (item[8] === false) {
               air1 = air1 + 1;
-            }
           }
-
-        )
+          
+   if (item[11] > 0) {
+            asc += 1;
+          } else if (item[11] < 0) {
+            desc += 1;
+            }
+         countedByState.push(item[2]);  
+          })
         this.airBorne = air1;
         this.grounded = this.totalPlanes - this.airBorne;
 
 
-         var asc = 0,
-          desc = 0;
 
-
-        this.data.states.forEach(function (item) {
-
-          if (item[11] > 0) {
-            asc += 1;
-          } else if (item[11] < 0) {
-            desc += 1;
-          }
-
-         })
-        
         this.ascending = asc;
         this.descending = desc;
 
         // state origin
-        var countedByState = [];
-        this.data.states.forEach(function (params) {
-
-              countedByState.push(params[2]);
-
-            }
-
-          )
+        
+       
           // console.log(countedByState);
 
         this.count = function (ary, classifier) {
