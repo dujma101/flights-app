@@ -20,6 +20,8 @@ export class DataService {
 
   request(): void {
     this.http.get('https://opensky-network.org/api/states/all')
+    
+   
       .map((res: Response) => res.json())
       .subscribe((res: Response) => {
         this.data = res;

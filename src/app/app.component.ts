@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from './header.component';
 import { CountriesComponent } from './airplanes/countries.component';
@@ -13,10 +13,22 @@ import { DataService } from './data.service';
   
 })
 
-export class AppComponent implements OnInit {
-  constructor(private data1: DataService) {} 
+export class AppComponent implements OnInit, OnDestroy {
+  constructor(private data1: DataService) { }
+  id;
+  ngOnInit() {
+    this.data1.request();
+    // this.id = setInterval(() => {
+    //   this.data1.request();
+    // }, 4000);
+  }
+   
 
-    ngOnInit() {
-      this.data1.request();
-   }
+
+
+  ngOnDestroy() {
+    if (this.id) {
+      clearInterval(this.id);
+    }
+  }
 }
